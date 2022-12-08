@@ -15,8 +15,10 @@ from filtrage import *
 # from Phidget22.Devices.Gyroscope import *
 # from Phidget22.Devices.Accelerometer import *
 
+# General Purpose Input Output Library : allows interactions between RasPi & external electronic components
 import RPi.GPIO as GPIO
 
+# Files in which show_result.py is going to stock datas for post analysis
 filename = "output.txt"
 filename_map = "output_map.txt"
 
@@ -42,6 +44,7 @@ largeur_convolution = config['largeur_convolution']
 servo_pin  = config['servo_pin']
 moteur_pin = config['moteur_pin']
 
+# ??
 # Calibration de servo moteur
 deg_0_pulse   = config['deg_0_pulse'] 
 deg_180_pulse = config['deg_180_pulse']
@@ -50,6 +53,7 @@ deg_180_pulse = config['deg_180_pulse']
 f = config['f']
 period = 1000/f
 
+# ??
 # Calibration de servo moteur
 deg_0_duty = deg_0_pulse * f/10
 pulse_range = deg_180_pulse - deg_0_pulse
@@ -73,6 +77,8 @@ dmax=0
 ################  END OF CONFIGURATION  ###############
 
 ################  Motors initialization ###############
+# Option GPIO.BCM means that we refer to pins by number "Broadcom SOC channel" : it is number then "GPIO"
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(servo_pin,GPIO.OUT)
 GPIO.setup(moteur_pin,GPIO.OUT)
