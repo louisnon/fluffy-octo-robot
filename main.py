@@ -87,7 +87,7 @@ GPIO.setup(moteur_pin,GPIO.OUT)
 
 # Define the PMW command by the frequency f (=50 Hz) for the servomotor
 pwm_servo = GPIO.PWM(servo_pin,f)
-# Define the cycle rate of the PMW command
+# Define the cycle rate of the PMW command for the servomotor
 cyclerate_servo = 0
 # Launch the PMW command
 pwm_servo.start(cyclerate_servo)
@@ -95,12 +95,14 @@ pwm_servo.start(cyclerate_servo)
 
 # Define PMW command by the frequency f (=50 Hz) for the DC motor
 pwm_moteur = GPIO.PWM(moteur_pin,f)
-# Define the cycle rate of the PMW command
+# Define the cycle rate of the PMW command for the DC motor
 cyclerate_motor = 2.5
 # Launch the PMW command
 pwm_moteur.start(cyclerate_motor)
 
+# Change the cycle rate of the PMW command for the servo motor, depending on its initial calibration
 pwm_servo.ChangeDutyCycle(duty)
+# Change the cycle rate of the PMW command for the motor to 0
 pwm_moteur.ChangeDutyCycle(0)
 
 ##############  LIDAR Initialization  #################
