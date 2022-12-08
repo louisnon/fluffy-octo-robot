@@ -131,17 +131,15 @@ go = 0
 # Press 'g' to start, Press 's' to stop
 def on_press(key):
     try:
+         # Display the key pressed
+            print('Alphanumeric key pressed: {0} '.format(
+            key.char))
         global go
         if key.char=='g':
             go = 1
-            # Display the key pressed
-            print('Alphanumeric key pressed: {0} '.format(
-            key.char))
         elif key.char=='s':
             go = 0
-            # Display the key pressed
-            print('Alphanumeric key pressed: {0} '.format(
-            key.char))
+            # Stop listener
             return False
     except AttributeError:
         # Display the special key pressed
@@ -170,6 +168,7 @@ with keyboard.Listener(
 
 
 #####  Utility variables  #####
+
 data=[]
 #data_yaw = []
 #data_acl = [] # 0:a_x, 1:a_y
