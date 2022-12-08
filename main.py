@@ -106,13 +106,23 @@ pwm_servo.ChangeDutyCycle(duty)
 pwm_moteur.ChangeDutyCycle(0)
 
 ##############  LIDAR Initialization  #################
-lidar = RPLidar('/dev/ttyUSB0')
+
+LIDAR_DEVICE = '/dev/ttyUSB0'
+# Connect to Lidar unit
+lidar = RPLidar(LIDAR_DEVICE)
+
+# note :  SLAM (Simultaneous Localization and Mapping)
+
+# Starts sensor motor
 lidar.start_motor()
+# Connects to the serial port with the name self.port. If it was connected to another serial port disconnects from it first.
 lidar.connect()
 
+# Pause
 time.sleep(2)
 
 ############# PYNPUT INITIALIZATION ###################
+
 go = 0
 
 def on_press(key):
