@@ -1,0 +1,17 @@
+{   
+    "strategy":1,
+    "v_cste":1440,
+    "vmin":1440,
+    "vmax":1475,
+    "coeff":1,
+    "d":10000,
+    "cone_detect":70,
+    "largeur_convolution":30,
+    "servo_pin":17,
+    "moteur_pin":18,
+    "deg_0_pulse":0.5,
+    "deg_180_pulse":2.5,
+    "f":50.0,
+    "tours_init":50,
+    "limit_tour":1000000
+}
