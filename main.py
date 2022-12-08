@@ -3,8 +3,10 @@ from math import *
 from rplidar import RPLidar
 import time
 import os
+# allow to process config.json
 import json
 import curses # For key pressing
+# allows to control & monitor input devices (mouse & keyboard)
 from pynput import keyboard
 
 from evitement import *
@@ -123,21 +125,37 @@ time.sleep(2)
 
 ############# PYNPUT INITIALIZATION ###################
 
+# When equal to 1, the car starts
 go = 0
 
+# Press 'g' to start, Press 's' to stop
 def on_press(key):
     try:
         global go
         if key.char=='g':
             go = 1
+            # Display the key pressed
+            print('Alphanumeric key pressed: {0} '.format(
+            key.char))
         elif key.char=='s':
             go = 0
+            # Display the key pressed
+            print('Alphanumeric key pressed: {0} '.format(
+            key.char))
             return False
     except AttributeError:
+        # Display the special key pressed
+        print('special key pressed: {0}'.format(
+            key))
         pass
-    
+
+# Release 'esc' to stop
 def on_release(key):
+    # Display the key released
+    print('Key released: {0}'.format(
+        key))
     if key==keyboard.Key.esc:
+        # Stop listener
         return False
     
 listener = keyboard.Listener(
