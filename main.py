@@ -158,9 +158,15 @@ def on_release(key):
         # Stop listener
         return False
     
-listener = keyboard.Listener(
-    on_press=on_press,
-    on_release=on_release)
+#listener = keyboard.Listener(
+ #   on_press=on_press,
+ #   on_release=on_release)
+
+# Collect events until released
+with keyboard.Listener(
+        on_press=on_press,
+        on_release=on_release) as listener:
+    listener.join()
 
 
 #####  Utility variables  #####
