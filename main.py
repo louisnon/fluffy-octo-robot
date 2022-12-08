@@ -77,20 +77,28 @@ dmax=0
 ################  END OF CONFIGURATION  ###############
 
 ################  Motors initialization ###############
+
 # Option GPIO.BCM means that we refer to pins by number "Broadcom SOC channel" : it is number then "GPIO"
 GPIO.setmode(GPIO.BCM)
-
 # Define the pin "servo_pin" (=17) as an output
 GPIO.setup(servo_pin,GPIO.OUT)
-
 # Define the pin "moteur_pin" (=18) as an output
 GPIO.setup(moteur_pin,GPIO.OUT)
 
+# Define the PMW command by the frequency f (=50 Hz) for the servomotor
 pwm_servo = GPIO.PWM(servo_pin,f)
-pwm_servo.start(0)
+# Define the cycle rate of the PMW command
+cyclerate_servo = 0
+# Launch the PMW command
+pwm_servo.start(cyclerate_servo)
 
+
+# Define PMW command by the frequency f (=50 Hz) for the DC motor
 pwm_moteur = GPIO.PWM(moteur_pin,f)
-pwm_moteur.start(2.5)
+# Define the cycle rate of the PMW command
+cyclerate_motor = 2.5
+# Launch the PMW command
+pwm_moteur.start(cyclerate_motor)
 
 pwm_servo.ChangeDutyCycle(duty)
 pwm_moteur.ChangeDutyCycle(0)
