@@ -78,9 +78,12 @@ dmax=0
 
 ################  Motors initialization ###############
 # Option GPIO.BCM means that we refer to pins by number "Broadcom SOC channel" : it is number then "GPIO"
-
 GPIO.setmode(GPIO.BCM)
+
+# Define the pin "servo_pin" (=17) as an output
 GPIO.setup(servo_pin,GPIO.OUT)
+
+# Define the pin "moteur_pin" (=18) as an output
 GPIO.setup(moteur_pin,GPIO.OUT)
 
 pwm_servo = GPIO.PWM(servo_pin,f)
