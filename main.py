@@ -182,16 +182,25 @@ listener.start() # starting
 flag = False
 try:
         ############  Data acquisition ##############
+        
+        # Check if the file path exists
         if os.path.exists(filename):
+            # Remove or delete the file path
             os.remove(filename)
+        # Open the file 
         file_obj = open(filename, 'a')
+        # Check if the file path exists
         if os.path.exists(filename_map):
+            # Remove or delete the file path
             os.remove(filename_map)
+        # Open the file
         file_obj_map = open(filename_map, 'a')
         
+        # Write in the file -"TimeStamp", "Average Distance", "Motor Speed", "Raw Direction", "Calculated Direction", "Suggest Direction"-
         file_obj.writelines("%s %s %s %s %s %s\n"
                             %("TimeStamp","Average Distance", "Motor Speed",
                               "Raw Direction", "Calculated Direction", "Suggest Direction"))
+        # Write in the file -"TimeStamp", "Lidar Data"-
         file_obj_map.writelines("%s %s\n"%("TimeStamp", "Lidar Data"))
             
 
