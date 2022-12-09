@@ -220,6 +220,7 @@ try:
             data.append(np.array(scan))
 
             # Extremal tuple of scan (min or max angle)
+            # Je comprends pas encore
             X=data[-1]
             for j in range(len(X)):
                 map[min(int(X[j][1])-1,359)]=X[j][2]
