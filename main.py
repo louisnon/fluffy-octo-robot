@@ -1,9 +1,10 @@
 import numpy as np
 from math import *
+# allows to control lidar
 from rplidar import RPLidar
 import time
 import os
-# allow to process config.json
+# allows to process config.json
 import json
 import curses # For key pressing
 # allows to control & monitor input devices (mouse & keyboard)
