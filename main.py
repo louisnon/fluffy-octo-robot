@@ -211,6 +211,8 @@ try:
             
 
         ################  MAIN LOOP  #################
+        
+        # Stock lidar scans over time
         for scan in lidar.iter_scans(500,10):
             data.append(np.array(scan))
 
