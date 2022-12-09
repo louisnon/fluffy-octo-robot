@@ -116,6 +116,12 @@ lidar = RPLidar(LIDAR_DEVICE)
 
 # note :  SLAM (Simultaneous Localization and Mapping)
 
+#info = lidar.get_info()
+#print(info)
+
+#health = lidar.get_health()
+#print(health)
+
 # Starts sensor motor
 lidar.start_motor()
 # Connects to the serial port with the name self.port. If it was connected to another serial port disconnects from it first.
