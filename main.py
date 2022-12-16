@@ -214,14 +214,13 @@ try:
         ################  MAIN LOOP  #################
         
         # Stock lidar scans over time
-        # Scan is a tuple (quality, angle, distance)
+        # Scan is a list of tuples (quality, angle, distance)
         for scan in lidar.iter_scans(500,10):
             # Stocks scan in data
             data.append(np.array(scan))
 
-            # Extremal tuple of scan (min or max angle)
-            # Je comprends pas encore
-            X=data[-1]
+            # Extremal tuple of data (ie last made scan)
+            X = data[-1]
             for j in range(len(X)):
                 map[min(int(X[j][1])-1,359)]=X[j][2]
             
