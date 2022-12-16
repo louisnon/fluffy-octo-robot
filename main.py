@@ -224,7 +224,7 @@ try:
             for j in range(len(X)):
                 map[min(int(X[j][1])-1,359)]=X[j][2]
             
-            # Put a convolution filter on the map
+            # Put a convolution filter on the map to lift the map
             mapt=filtrage(map, largeur_convolution)
 
 
