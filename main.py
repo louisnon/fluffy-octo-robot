@@ -244,11 +244,12 @@ try:
 
                 ##################  LOI DE DIRECTION  ####################
                 dmax=0
+                # Sets the maximal distance
                 for i in range(-cone_detect, cone_detect):
                     if mapt[i]>dmax:
                         dmax=mapt[i]
                         angle_cible=i
-                    
+                # Sets the angle aimed by the car
                 angle_raw = angle_cible # pour acquisition
                 
                 if abs(angle_cible)<15:
