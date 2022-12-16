@@ -249,9 +249,11 @@ try:
                     if mapt[i]>dmax:
                         dmax=mapt[i]
                         angle_cible=i
+                        
                 # Sets the angle aimed by the car
                 angle_raw = angle_cible # pour acquisition
                 
+                # Direction law which refers to the README file
                 if abs(angle_cible)<15:
                         angle_consigne=0
                 elif abs(angle_cible)<50:
@@ -259,14 +261,17 @@ try:
                 else:
                         angle_consigne=min(22,max(-22,angle_cible))
                 
-                
+                # Changes steering angle of the car, aiming the farthest point
                 consigne_servo=60*((angle_consigne+22)/44+1)
                 
                 duty = deg_0_duty + (consigne_servo/180.0)* duty_range
                 pwm_servo.ChangeDutyCycle(duty)
                 
                 ###################  LOI DE VITESSE  #####################
-                v=vmin+(vmax-vmin)*(1-exp(-mapt[0]*3/d))*(1-abs(consigne_servo-90)/30)
+                alpha_max = 30
+                #d_frontcar = mapt[0]
+                # Different law from the README file
+                v=vmin+(vmax-vmin)*(1-exp(-mapt[0]*3/d))*(1-abs(consigne_servo-90)/alpha_max)
                 # v = v_cste              
                 consigne_moteur=v
                 pwm_moteur.ChangeDutyCycle(consigne_moteur)
